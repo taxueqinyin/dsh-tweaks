@@ -1,0 +1,79 @@
+{
+  "name": "dsh-tweaks",
+  "version": "0.1.0",
+  "description": "Small quality-of-life tweaks for DeepSeek Harness: per-model image input in the model settings, and a general system instruction injected at the top of every conversation.",
+  "author": "taxueqinyin <taxueqinyin@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taxueqinyin/dsh-tweaks.git"
+  },
+  "homepage": "https://github.com/taxueqinyin/dsh-tweaks#readme",
+  "bugs": {
+    "url": "https://github.com/taxueqinyin/dsh-tweaks/issues"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsdown && node scripts/wrap-client.mjs",
+    "watch": "tsdown --watch",
+    "prepack": "npm run build"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-models"
+      ],
+      "platform": "web"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "settings",
+    "model",
+    "image",
+    "system-prompt"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/schemastery": "^3.18.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/schemastery": "^3.18.2",
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.5-rc.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.31",
+    "@types/node": "^22.10.0",
+    "tsdown": "^0.23.0",
+    "typescript": "^5.9.0"
+  }
+}

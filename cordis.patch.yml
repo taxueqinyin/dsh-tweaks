@@ -1,0 +1,5 @@
+# Bundle patch layer: load this package's main entry as the host half, and its
+# `dsh.client` declaration makes the web app load ./client as the browser half.
+- insert:
+    - id: dsh-tweaks
+      name: dsh-tweaks
