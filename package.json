@@ -1,6 +1,6 @@
 {
   "name": "dsh-tweaks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Small quality-of-life tweaks for DeepSeek Harness: per-model image input in the model settings, and a general system instruction injected at the top of every conversation.",
   "author": "taxueqinyin <taxueqinyin@gmail.com>",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "lib/client.js",
     "cordis.patch.yml",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "README.zh-CN.md"
   ],
   "scripts": {
     "build": "tsdown && node scripts/wrap-client.mjs",
